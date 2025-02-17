@@ -1,0 +1,63 @@
+<div class="cards">
+    <div class="cards-body">
+
+
+        <h5>Inicio de Sesion</h5>
+
+        <form enctype="multipart/form-data" autocomplete="off" id="formulario" [formGroup]="formulario"
+            (submit)="sendLogin()">
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="text" name="email" id="email" class="form-control form-control-sm shadow-none"
+                    placeholder="Correo Electrónico" formControlName="email" />
+                @if (formulario.controls['email'].invalid && formulario.controls['email'].touched ||
+                formulario.controls['email'].dirty) {
+                <small id="message-error">
+
+
+                    @if (formulario.controls['email'].errors?.['required']) {
+                    <span class="material-icons">
+                        error
+                    </span>
+                    El Correo Electrónico es requerido.
+                    }
+
+                    @if (formulario.controls['email'].errors?.['email'] &&
+                    formulario.controls['email'].errors?.['pattern']) {
+                    <span class="material-icons">
+                        error
+                    </span>
+                    El Correo Electrónico es invalido.
+                    }
+
+                </small>
+                }
+            </div>
+            <div class="mb-2">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" name="password" id="password" class="form-control form-control-sm shadow-none"
+                    placeholder="Contraseña" formControlName="password" />
+
+                @if (formulario.controls['password'].invalid && formulario.controls['password'].touched ||
+                formulario.controls['password'].dirty) {
+                <small id="message-error">
+
+                    @if (formulario.controls['password'].errors?.['required']) {
+                    <span class="material-icons">
+                        error
+                    </span>
+                    La Contraseña es requerida.
+                    }
+
+
+                </small>
+                }
+            </div>
+
+            <div class="footer">
+                <p><a routerLink="register">Crear cuenta</a></p>
+                <app-button title="Ingresar" type="submit" icon="login" />
+            </div>
+        </form>
+    </div>
+</div>

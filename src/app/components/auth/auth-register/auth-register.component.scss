@@ -1,0 +1,85 @@
+.cards {
+    border-radius: 10px;
+    width: 100vh !important;
+    max-width: 55vh !important;
+    padding: 35px 20px;
+    .cards-body {
+        h5,
+        label {
+            color: white;
+        }
+
+        h5 {
+            font-family: "Playfair Display", serif;
+            text-align: center;
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .return-login {
+            text-decoration: none;
+            color: white;
+            position: absolute;
+            top: 26px;
+            left: 30px;
+            display: flex;
+            align-content: center;
+            span {
+                font-size: clamp(1.3rem, 4vw, 1.4rem);
+            }
+        }
+
+        .return-login:hover {
+            color: hsl(214, 49%, 63%);
+        }
+
+        #formulario {
+            div {
+                label {
+                    font-family: "Playfair Display", serif;
+                    font-weight: 500;
+                    font-size: clamp(1rem, 3vw, 1.1rem);
+                }
+            }
+        }
+
+        .footer {
+            width: 100%;
+            p {
+                font-family: "Playfair Display", serif;
+                font-weight: 200;
+                text-align: end;
+                padding: 0;
+                margin: 0 0 10px 0;
+
+                a {
+                    text-decoration: none;
+                    color: hsl(4, 47%, 46%);
+                }
+
+                a:hover {
+                    color: hsl(4, 47%, 66%);
+                }
+            }
+
+            app-button {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .cards {
+        max-width: 1vh !important;
+        padding: 25px 10px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .cards {
+        max-width: 45vh !important;
+        padding: 25px 10px;
+    }
+}

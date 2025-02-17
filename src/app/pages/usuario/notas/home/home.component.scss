@@ -1,0 +1,14 @@
+.filtro {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    select {
+        width: 100px;
+    }
+}
+
+.add-note {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}

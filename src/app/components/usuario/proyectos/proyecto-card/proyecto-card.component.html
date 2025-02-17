@@ -1,0 +1,41 @@
+<div class="cards">
+    <div class="acciones">
+        <a (click)="viewProyecto()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight">
+            <span class="material-icons search">search</span>
+        </a>
+        <a routerLink="{{proyecto()?.idProyectos}}/edit">
+            <span class="material-icons edit">edit</span>
+        </a>
+        <a (click)=" deleteProyecto()">
+            <span class="material-icons delete">delete</span>
+        </a>
+    </div>
+    <div class="cards-body proyecto">
+        <div class="cards-titulo">
+            {{proyecto()?.titulo}}
+        </div>
+        <hr>
+        <div class="cards-contenido">
+            {{proyecto()?.descripcion}}
+
+        </div>
+        <hr>
+        <div class="cards-footer">
+            <div class="sitio">
+                <a href="{{proyecto()?.link}}" target="_blank">
+                    <span class="material-icons">
+                        language
+                    </span>
+                </a>
+            </div>
+            <div class="estado" [class.produccion]="estado()">
+                <span class="material-icons">
+                    {{estado() ? 'check_circle':'block'}}
+
+                </span>
+                {{estado() ? 'Producción':'Local'}}
+            </div>
+        </div>
+    </div>
+</div>

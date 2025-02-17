@@ -1,0 +1,26 @@
+<div class="cards note">
+    <div class="acciones">
+        <a (click)="viewNotas()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight">
+            <span class="material-icons search">search</span>
+        </a>
+        <a routerLink="{{notas()?.idNotas}}/edit">
+            <span class="material-icons edit">edit</span>
+        </a>
+        <a (click)="deleteNota()">
+            <span class="material-icons delete">delete</span>
+        </a>
+    </div>
+    <div class="cards-body">
+        <h5 class="titulo">
+            {{notas()?.titulo}}
+        </h5>
+        <hr>
+        <div class="contenido" [innerHTML]="contenidoHtml()">
+        </div>
+        <hr>
+        <div class="footer">
+            {{fechaFormat()}}
+        </div>
+    </div>
+</div>

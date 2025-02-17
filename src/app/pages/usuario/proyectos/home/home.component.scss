@@ -1,0 +1,14 @@
+.add-proyecto {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.filtro {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    select {
+        width: 100px;
+    }
+}

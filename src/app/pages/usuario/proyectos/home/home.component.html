@@ -1,0 +1,27 @@
+<div class="container">
+    @if(proyecto_Store.proyectos_length() > 0){
+    <div class="row g-3 justify-content-center">
+        <div class="filtro">
+            <div class="mb-1">
+                <select class="form-select form-select-sm shadow-none" name="filtro" id="filtro"
+                    (change)="filtros($event)">
+                    <option value="">-------</option>
+                    <option value="Aa-Zz">Aa-Zz</option>
+                    <option value="Zz-Aa">Zz-Aa</option>
+                </select>
+            </div>
+        </div>
+        @for (item of proyecto_Store.list_proyectos(); track item.idProyectos) {
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <app-proyecto-card [proyecto]="item" (delete)="dltProyecto($event)" (view)="vwProyecto($event)" />
+        </div>
+        }
+    </div>
+    }
+
+    <app-offcanvas [proyecto]="dataOffCanvas" />
+</div>
+
+<div class="add-proyecto">
+    <app-button-open-add [type]="'button'" (click)="addProyecto()" />
+</div>

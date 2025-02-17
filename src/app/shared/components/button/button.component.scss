@@ -1,0 +1,21 @@
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    border-radius: 20px;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border: none;
+    padding: 10px;
+    color: hsl(265, 96%, 100%);
+    background-color: hsl(216, 61%, 12%);
+
+    // span {}
+}
+
+button:hover {
+    background-color: hsl(216, 61%, 22%)
+}

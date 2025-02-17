@@ -1,0 +1,75 @@
+<div class="cards">
+    <div class="cards-title">
+        {{!idProyectos ? 'Agregar' : 'Editar'}} Proyecto
+
+    </div>
+    <hr>
+    <form method="post" enctype="multipart/form-data" autocomplete="off" [formGroup]="formulario"
+        (submit)="sendProyecto()">
+        <div class="cards-body">
+            <div class="mb-2">
+                <label for="titulo" class="form-label">Titulo</label>
+                <input type="text" name="titulo" id="titulo" class="form-control form-control-sm shadow-none"
+                    placeholder="Titulo ..." formControlName="titulo" />
+                <small id="message-error">
+                    @if(formulario.controls['titulo'].invalid && formulario.controls['titulo'].touched ||
+                    formulario.controls['titulo'].dirty){
+                    @if(formulario.controls['titulo'].errors?.['required']){
+                    <span class="material-icons">
+                        error
+                    </span>
+                    El titulo es requerido.
+                    }
+                    }
+                </small>
+            </div>
+
+            <div class="mb-2">
+                <label for="url" class="form-label">Link Url</label>
+                <input type="text" name="url" id="url" class="form-control form-control-sm shadow-none"
+                    placeholder="Link ..." formControlName="link" />
+                <small id="message-error">
+                    @if(formulario.controls['link'].invalid && formulario.controls['link'].touched ||
+                    formulario.controls['link'].dirty){
+                    @if(formulario.controls['link'].errors?.['required']){
+                    <span class="material-icons">
+                        error
+                    </span>
+                    El link es requerido.
+                    }
+                    }
+                </small>
+            </div>
+
+            <div class="mb-2">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea name="descripcion" style="resize: none;" id="descripcion"
+                    class="form-control form-control-sm shadow-none" placeholder="Descripción ..."
+                    formControlName="descripcion"></textarea>
+                <small id="message-error">
+                    @if(formulario.controls['descripcion'].invalid && formulario.controls['descripcion'].touched ||
+                    formulario.controls['descripcion'].dirty){
+                    @if(formulario.controls['descripcion'].errors?.['required']){
+                    <span class="material-icons">
+                        error
+                    </span>
+                    La descripción es requerida.
+                    }
+                    }
+                </small>
+            </div>
+
+            <div class="mb-2">
+                <div class="form-check form-switch">
+                    <label class="form-check-label" for="estado">Local / Producción</label>
+                    <input class="form-check-input shadow-none" type="checkbox" role="switch" id="estado"
+                        formControlName="estado">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="cards-footer">
+            <app-button title="{{!idProyectos ? 'Agregar':'Editar'}} Proyecto" type="submit" icon="edit_square" />
+        </div>
+    </form>
+</div>

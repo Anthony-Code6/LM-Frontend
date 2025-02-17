@@ -1,0 +1,41 @@
+.offcanvas {
+    color: white;
+    font-family: "Playfair Display", serif;
+    font-weight: 300;
+    border-radius: 0px !important;
+    .offcanvas-header {
+        .offcanvas-title {
+        }
+
+    }
+    .offcanvas-body {
+        .descripcion {
+        }
+
+        .detalles {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+            gap: 4px;
+            .sitio {
+                a {
+                    text-decoration: none;
+                    color: black;
+                    span {
+                        color: white;
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+            .estado{
+                font-size: .8rem;
+            }
+
+            .fecha{
+                font-size: .8rem;
+            }
+        }
+    }
+}

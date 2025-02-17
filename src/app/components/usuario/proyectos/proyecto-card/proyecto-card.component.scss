@@ -1,0 +1,74 @@
+.cards {
+    font-family: "Playfair Display", serif;
+    font-weight: 300;
+    position: relative;
+
+    
+    .cards-body {
+        padding: 10px;
+        color: white;
+        .cards-titulo {
+            font-size: clamp(1.04rem, 2vw, 1.1rem);
+        }
+
+        hr {
+            color: white;
+            margin: 10px 0;
+        }
+
+        .cards-contenido {
+            text-align: justify;
+            font-family: "Playfair Display", serif;
+            font-weight: 300;
+            display: -webkit-box;
+            font-size: clamp(0.95rem, 2vw, 1rem);
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .cards-footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .sitio {
+                a {
+                    text-decoration: none;
+                    color: white;
+                    span {
+                    }
+                }
+            }
+
+            .estado {
+                cursor: default;
+                background-color: hsl(0, 100%, 25%);
+                border-radius: 10px;
+                padding: 3px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 2px;
+                font-size: 12px;
+                span {
+                    font-size: 16px;
+                }
+            }
+
+            .estado.produccion {
+                background-color: hsl(120, 100%, 25%);
+            }
+        }
+    }
+}
+
+.cards:hover {
+    .acciones {
+        top: -10px;
+        opacity: 1;
+        transition: all 500ms ease-in-out;
+    }
+}

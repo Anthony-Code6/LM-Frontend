@@ -1,0 +1,53 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">
+            <!-- Informacion del Proyecto -->
+            @if(proyecto()){
+            {{proyecto()?.titulo}}
+            }
+
+            <!-- Informacion de la Nota -->
+            @if(nota()){
+            {{nota()?.titulo}}
+            }
+        </h5>
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <!-- Detalles del Proyecto -->
+        @if(proyecto()){
+        <div class="descripcion">
+            {{proyecto()?.descripcion}}
+        </div>
+
+        <div class="detalles">
+            <div class="sitio">
+                <a href="{{proyecto()?.link}}" target="_blank" rel="noopener noreferrer">
+                    <span class="material-icons">
+                        language
+                    </span>
+                </a>
+            </div>
+
+            <div class="estado">
+                {{estado() ? 'Producción':'Local'}}
+            </div>
+
+            <div class="fecha">
+                {{fechaFormat()}}
+            </div>
+        </div>
+        }
+
+        <!-- Detalles de la Nota -->
+        @if(nota()){
+        <div class="descripcion" [innerHTML]="contenidoHtml()"></div>
+        <div class="detalles">
+
+            <div class="fecha">
+                {{fechaFormat()}}
+            </div>
+
+        </div>
+        }
+    </div>

@@ -1,0 +1,30 @@
+<div class="sidebar" [class.open-sidebar]="sideNavCollapsed()">
+    <div class="sidebar-header">
+        <div class="imagen">
+            <img src="imagen/profile.jpg" alt="">
+        </div>
+        <span class="material-icons" (click)="sidebarClose()">
+            arrow_back_ios
+        </span>
+    </div>
+    <div class="sidebar-content">
+        <ul>
+            @for (item of navbar(); track $index) {
+            <li>
+                <span class="material-symbols-outlined">
+                    {{item.icon}}
+                </span>
+                <a routerLink="{{item.ruta}}" routerLinkActive="selected-menu-item"
+                    (click)="sidebarClose()">{{item.ruta}}</a>
+            </li>
+            }
+            <hr style="color: white;">
+            <li>
+                <span class="material-icons">
+                    logout
+                </span>
+                <a (click)="logout()">Cerrar Sesion</a>
+            </li>
+        </ul>
+    </div>
+</div>

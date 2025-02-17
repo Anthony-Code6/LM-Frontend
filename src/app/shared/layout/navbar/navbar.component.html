@@ -1,0 +1,24 @@
+<nav>
+    <div class="navbars">
+        <div class="navbars-content">
+            <div class="navbar-menu">
+                <span class="material-icons" (click)="collapsed.set(!collapsed())">
+                    menu
+                </span>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+<app-sidebar [navbar]=" navbar()" [collapsed]="collapsed()" (closeSidebar)="closeSidebar($event)" />
+
+<div class="container-fluid">
+
+    <!-- Spinner -->
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.9)" size="large" color="#fff" type="ball-scale-multiple" [fullScreen]="true">
+        <p style="color: white"> Cargando .... </p>
+    </ngx-spinner>
+
+    <router-outlet />
+</div>

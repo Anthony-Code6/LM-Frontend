@@ -1,0 +1,12 @@
+<form enctype="multipart/form-data" method="post" autocomplete="off" [formGroup]="formulario" (submit)="sendNota()">
+    <div class="titulo">
+        <input type="text" class="form-control shadow-none title" formControlName="titulo"
+            placeholder="Titulo de la Nota">
+    </div>
+    <div class="contenido">
+        <div id="editor" style="width: 100%;"></div>
+    </div>
+    <div class="footer">
+        <app-button title="{{!idNota? 'Agregar':'Editar'}} Nota" icon="edit_square" type="submit" />
+    </div>
+</form>

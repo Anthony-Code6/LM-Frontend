@@ -1,0 +1,89 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -410px;
+    width: 0;
+    max-width: 250px;
+    height: 100vh;
+    z-index: 1001;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    .sidebar-header {
+        position: relative;
+
+        .imagen{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            img {
+                width: 200px;
+                border-radius: 100%;
+                object-fit: cover;
+            }
+        }
+
+        span {
+            cursor: pointer;
+            position: absolute;
+            top: 5px;
+            right: -10px;
+            color: white;
+        }
+
+        span:hover {
+            color: hsl(214, 49%, 63%);
+        }
+    }
+
+    .sidebar-content {
+        ul {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+            li {
+                cursor: pointer;
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                align-items: center;
+                margin-bottom: 10px;
+                span {
+                    color: white;
+                }
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                    font-family: "Playfair Display", serif;
+                    font-size: clamp(1.1rem, 4vw, 1.2rem);
+                }
+
+                a:first-letter {
+                    text-transform: uppercase;
+                }
+
+                a:not(first-letter) {
+                    text-transform: lowercase;
+                }
+            }
+
+            li:hover {
+                span {
+                    color: hsl(214, 49%, 63%);
+                }
+
+                a {
+                    color: hsl(214, 49%, 63%);
+                }
+            }
+        }
+    }
+}
+
+.open-sidebar {
+    left: 0px;
+    width: 100%;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}

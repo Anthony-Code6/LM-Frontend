@@ -1,0 +1,71 @@
+.cards {
+    border-radius: 10px;
+    width: 100vh !important;
+    max-width: 50vh !important;
+    padding: 35px 20px;
+    margin-inline: 1rem;
+    .cards-body {
+        position: relative;
+        h5,
+        label {
+            color: white;
+        }
+
+
+        h5 {
+            font-family: "Playfair Display", serif;
+            text-align: center;
+            font-size: clamp(1.3rem, 4vw, 1.4rem);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        #formulario {
+            div {
+                label {
+                    font-family: "Playfair Display", serif;
+                    font-weight: 500;
+                    font-size: clamp(1rem, 3vw, 1.1rem);
+                }
+            }
+        }
+
+        .footer {
+            width: 100%;
+            p {
+                font-family: "Playfair Display", serif;
+                font-weight: 200;
+                text-align: end;
+                padding: 0;
+                margin: 0 0 10px 0;
+
+                a {
+                    text-decoration: none;
+                    color: hsl(214, 49%, 3%)
+                }
+
+                a:hover {
+                    color: hsl(214, 49%, 63%)
+                }
+            }
+            
+            app-button{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .cards {
+        max-width: 40vh !important;
+        padding: 25px 10px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .cards {
+        max-width: 45vh !important;
+        padding: 25px 10px;
+    }
+}

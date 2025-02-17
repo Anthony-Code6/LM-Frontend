@@ -1,0 +1,28 @@
+nav {
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+    right: 0;
+    .navbars {
+        .navbars-content {
+            .navbar-menu {
+                span {
+                    width: max-content;
+                    cursor: pointer;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                }
+
+                span:hover {
+                    color:  hsl(214, 49%, 63%);
+                }
+            }
+        }
+    }
+}
+
+.container-fluid {
+    padding: 10px 0 0 0 !important;
+    z-index: 10 !important;
+}
