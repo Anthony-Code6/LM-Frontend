@@ -4,10 +4,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ToastService } from '../../../core/services/toast.service';
 import { RouterLink } from '@angular/router';
 import { ButtonComponent } from "../../../shared/components/button/button.component";
+import { CardComponent } from "../../../shared/components/card/card.component";
 
 @Component({
   selector: 'app-auth-register',
-  imports: [ReactiveFormsModule, RouterLink, ButtonComponent],
+  imports: [ReactiveFormsModule, RouterLink, ButtonComponent, CardComponent],
   templateUrl: './auth-register.component.html',
   styleUrl: './auth-register.component.scss'
 })

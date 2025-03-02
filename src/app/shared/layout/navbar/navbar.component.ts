@@ -29,7 +29,7 @@ export class NavbarComponent {
       },
       {
         idRutas: '',
-        ruta: 'tareas',
+        ruta: 'trabajos',
         icon: 'keep'
       }, {
         idRutas: '',

@@ -1,0 +1,29 @@
+<app-card>
+    <div class="acciones">
+        <a (click)="enviarTrabajo()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight">
+            <span class="material-icons search">search</span>
+        </a>
+        <a routerLink="{{trabajos()?.idTrabajos}}/edit">
+            <span class="material-icons edit">edit</span>
+        </a>
+        <a>
+            <span class="material-icons delete">delete</span>
+        </a>
+    </div>
+    <div id="titulo">
+        {{trabajos()?.nombre}}
+    </div>
+
+    <hr>
+
+    <div id="footer">
+        <div id="fecha">
+            {{formatDate()}}
+        </div>
+        <div id="total">
+            Total de Tareas: {{totalTareas()}}
+        </div>
+    </div>
+
+</app-card>

@@ -1,4 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+
+html {
+    @include mat.theme(
+        (
+            color: (
+                theme-type: light,
+                primary: mat.$azure-palette,
+                tertiary: mat.$blue-palette
+            ),
+            typography: Roboto,
+            density: 0
+        )
+    );
+} /* You can add global styles to this file, and also import other style files */
 
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap");
 
@@ -77,6 +93,10 @@ textarea {
     border: none !important;
 }
 
+.form-check-label {
+    cursor: pointer;
+}
+
 .form-check-input:checked {
     background-color: hsl(216, 61%, 12%) !important;
     border: none !important;
@@ -111,6 +131,7 @@ textarea {
     border: none;
     border-radius: 12px !important;
     text-align: center;
+    font-family: "Playfair Display", serif;
 }
 
 .form-control.title::placeholder {
@@ -163,7 +184,7 @@ textarea {
         }
 
         .jtoolbar-item:hover {
-            background-color:hsl(216, 61%, 22%);
+            background-color: hsl(216, 61%, 22%);
             .material-icons {
                 color: white;
             }
@@ -179,7 +200,7 @@ textarea {
 }
 
 // Acciones de Cards
-.cards {
+.cards .cards-body {
     .acciones {
         transition: all 500ms ease-in-out;
         position: absolute;
@@ -214,4 +235,21 @@ textarea {
             }
         }
     }
+}
+
+.cards:hover {
+    .acciones {
+        top: -10px;
+        opacity: 1;
+        transition: all 500ms ease-in-out;
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }

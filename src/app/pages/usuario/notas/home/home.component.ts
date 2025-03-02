@@ -1,15 +1,16 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { ButtonOpenAddComponent } from '../../../../shared/components/button-open-add/button-open-add.component';
 import { NotasCardComponent } from "../../../../components/usuario/notas/notas-card/notas-card.component";
 import { NotasService } from '../../../../core/services/notas.service';
 import { NotasStore } from '../../../../core/store/notas.store';
 import { Notas } from '../../../../core/interfaces/notas';
 import { OffcanvasComponent } from "../../../../shared/components/offcanvas/offcanvas.component";
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ButtonLinksComponent } from "../../../../shared/components/button-links/button-links.component";
 
 @Component({
   selector: 'app-home',
-  imports: [ButtonOpenAddComponent, NotasCardComponent, OffcanvasComponent],
+  imports: [NotasCardComponent, OffcanvasComponent, ButtonLinksComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   providers: [NotasStore]
@@ -20,13 +21,14 @@ export class HomeComponent {
   notasServices = inject(NotasService)
   dataOffCanvas!: Notas
   readonly notas_Store = inject(NotasStore)
+  spinner = inject(NgxSpinnerService)
 
   constructor() {
     this.notas_Store.loadNotas()
-  }
-
-  addNota() {
-    this.router.navigateByUrl('/user/notas/create')
+    this.spinner.show()
+    setTimeout(() => {
+      this.spinner.hide()
+    }, 700);
   }
 
   delete_nota(event: Notas) {

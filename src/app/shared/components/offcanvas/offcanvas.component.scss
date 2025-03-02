@@ -6,7 +6,6 @@
     .offcanvas-header {
         .offcanvas-title {
         }
-
     }
     .offcanvas-body {
         .descripcion {
@@ -29,12 +28,26 @@
                 }
             }
 
-            .estado{
-                font-size: .8rem;
+            .estado {
+                font-size: 0.8rem;
             }
 
-            .fecha{
-                font-size: .8rem;
+            .fecha {
+                font-size: 0.8rem;
+            }
+        }
+
+        .tareas {
+            ol {
+                padding: 0 0 0 10px;
+                li {
+                    list-style: none;
+                }
+            }
+
+            .fecha {
+                text-align: center;
+                font-size: 0.8rem;
             }
         }
     }

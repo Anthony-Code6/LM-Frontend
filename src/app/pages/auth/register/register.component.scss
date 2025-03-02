@@ -4,3 +4,21 @@
     display: grid;
     place-content: center;
 }
+
+app-auth-register{
+    width: 55vh;
+}
+
+@media screen and (max-width: 300px) {
+    app-auth-register {
+        max-width: 40vh !important;
+        padding: 25px 10px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    app-auth-register {
+        max-width: 45vh !important;
+        padding: 25px 10px;
+    }
+}

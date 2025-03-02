@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center">
     <app-proyecto-create-update (formularioProyecto)="AddEditProyecto($event)"
-        [informacionProyecto]="proyecto_Store.get_Proyecto()">
+        [informacionProyecto]="proyecto_Store.get_Proyecto()" [idProyecto]="proyectoId">
     </app-proyecto-create-update>
 </div>

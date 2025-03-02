@@ -1,0 +1,107 @@
+h5 {
+    text-align: center;
+    color: white;
+}
+
+.add-task {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    gap: 10px;
+    display: flex;
+    app-button {
+        width: max-content;
+    }
+}
+
+.form-task {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    app-button {
+        height: auto;
+        margin: 0;
+    }
+}
+
+.task-list {
+    width: 500px;
+    max-width: 100%;
+
+    height: min-content;
+    max-height: 400px;
+    display: block;
+    background: white;
+    border-radius: 4px;
+    height: auto;
+    overflow-y: auto;
+
+    
+}
+
+.task-box {
+    padding: 10px 10px;
+    border-bottom: solid 1px hsl(216, 61%, 12%);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: hsl(216, 61%, 22%);
+    font-size: 14px;
+    overflow: hidden;
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    app-button {
+        margin: 0;
+    }
+}
+
+.task-complete {
+    background-color: hsl(120, 100%, 25%);
+}
+
+.task-list::-webkit-scrollbar {
+    display: none;
+}
+
+.cdk-drop-list {
+    background-color: hsl(216, 61%, 12%);
+}
+
+.cdk-drag-preview {
+    border: none;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow:
+        0 5px 5px -3px rgba(0, 0, 0, 0.2),
+        0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.task-box:last-child {
+    border: none;
+}
+
+.task-list.cdk-drop-list-dragging .task-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+#btn-button{
+    margin-top: 10px;
+    display: block;
+}

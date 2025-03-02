@@ -10,6 +10,8 @@ import { authenticationGuard } from './core/guards/authentication.guard';
 import { rolesGuard } from './core/guards/roles.guard';
 import { HomeComponent as HomeProyectosComponent } from './pages/usuario/proyectos/home/home.component';
 import { CreateUpdateComponent as ProyectoCreateUpdateComponent } from './pages/usuario/proyectos/create-update/create-update.component';
+import { TrabajosHomeComponent } from './pages/usuario/trabajos/trabajos-home/trabajos-home.component';
+import { CreateUpdateComponent as TrabajosCreateUpdate } from './pages/usuario/trabajos/create-update/create-update.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'auth' },
@@ -41,7 +43,13 @@ export const routes: Routes = [
                 path: 'notas/:id/edit', component: NotasCreateUpdateComponent
             },
             {
-                path: 'tareas', component: HomeComponent
+                path: 'trabajos', component: TrabajosHomeComponent
+            },
+            {
+                path: 'trabajos/create', component: TrabajosCreateUpdate
+            },
+            {
+                path: 'trabajos/:id/edit', component: TrabajosCreateUpdate
             },
             {
                 path: 'proyectos', component: HomeProyectosComponent

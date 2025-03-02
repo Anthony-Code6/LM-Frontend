@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row g-2 justify-content-center">
+        @for (item of trabajoStore.trabajos_list(); track item.idTrabajos) {
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <app-trabajos-card [trabajos]="item" (sendTrabajo)="viewTrabajo($event)" />
+        </div>
+        }
+    </div>
+
+    <app-offcanvas [trabajo]="trabajoStore.trabajo_get()" (tareaStatus)="updateEstado($event)"/>
+</div>
+
+<div class="add-trabajo">
+    <app-button-links link="/user/trabajos/create" />
+</div>

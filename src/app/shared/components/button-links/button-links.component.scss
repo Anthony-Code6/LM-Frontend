@@ -1,11 +1,12 @@
-button {
+a {
     border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
     border: none;
-    background-color:hsl(216, 61%, 22%);
+    background-color: hsl(216, 61%, 22%);
+    text-decoration: none;
     // border: 1px solid hsl(300, 100%, 8%);
     span {
         margin: 0;
@@ -14,8 +15,6 @@ button {
     }
 }
 
-
-button:hover {
+a:hover {
     background-color: hsl(216, 61%, 32%);
-    
 }

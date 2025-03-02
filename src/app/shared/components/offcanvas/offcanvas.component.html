@@ -4,18 +4,16 @@
             <!-- Informacion del Proyecto -->
             @if(proyecto()){
             {{proyecto()?.titulo}}
-            }
-
-            <!-- Informacion de la Nota -->
-            @if(nota()){
+            }@else if(nota()){
             {{nota()?.titulo}}
+            }@else if(trabajo()){
+            {{trabajo()?.nombre}}
             }
         </h5>
         <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <!-- Detalles del Proyecto -->
-        @if(proyecto()){
+        @if(proyecto()){ <!-- Detalles del Proyecto -->
         <div class="descripcion">
             {{proyecto()?.descripcion}}
         </div>
@@ -37,10 +35,7 @@
                 {{fechaFormat()}}
             </div>
         </div>
-        }
-
-        <!-- Detalles de la Nota -->
-        @if(nota()){
+        }@else if(nota()){ <!-- Informacion de la Nota -->
         <div class="descripcion" [innerHTML]="contenidoHtml()"></div>
         <div class="detalles">
 
@@ -48,6 +43,27 @@
                 {{fechaFormat()}}
             </div>
 
+        </div>
+        }@else if (trabajo()) {
+        <div class="tareas">
+            <ol>
+                @for (item of trabajo()?.Tareas; track item) {
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input  shadow-none" type="checkbox" [attr.trabajo]="item.idTrabajo"
+                            [value]="item.idTareas" [checked]="item.estado" (change)="sendEstado($event)"
+                            id="{{item.idTareas}}">
+                        <label class="form-check-label" for="{{item.idTareas}}">
+                            {{item.tarea}} {{item.estado  ? "✅":"⛔"}}
+                        </label>
+                    </div>
+                </li>
+                }
+            </ol>
+
+            <div class="fecha">
+                {{fechaFormat()}}
+            </div>
         </div>
         }
     </div>

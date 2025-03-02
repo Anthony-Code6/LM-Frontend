@@ -1,4 +1,4 @@
-<div class="cards">
+<app-card>
     <div class="acciones">
         <a (click)="viewProyecto()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
             aria-controls="offcanvasRight">
@@ -11,31 +11,30 @@
             <span class="material-icons delete">delete</span>
         </a>
     </div>
-    <div class="cards-body proyecto">
-        <div class="cards-titulo">
-            {{proyecto()?.titulo}}
-        </div>
-        <hr>
-        <div class="cards-contenido">
-            {{proyecto()?.descripcion}}
 
-        </div>
-        <hr>
-        <div class="cards-footer">
-            <div class="sitio">
-                <a href="{{proyecto()?.link}}" target="_blank">
-                    <span class="material-icons">
-                        language
-                    </span>
-                </a>
-            </div>
-            <div class="estado" [class.produccion]="estado()">
+    <div class="cards-titulo">
+        {{proyecto()?.titulo}}
+    </div>
+    <hr>
+    <div class="cards-contenido">
+        {{proyecto()?.descripcion}}
+
+    </div>
+    <hr>
+    <div class="cards-footer">
+        <div class="sitio">
+            <a href="{{proyecto()?.link}}" target="_blank">
                 <span class="material-icons">
-                    {{estado() ? 'check_circle':'block'}}
-
+                    language
                 </span>
-                {{estado() ? 'Producción':'Local'}}
-            </div>
+            </a>
+        </div>
+        <div class="estado" [class.produccion]="estado()">
+            <span class="material-icons">
+                {{estado() ? 'check_circle':'block'}}
+
+            </span>
+            {{estado() ? 'Producción':'Local'}}
         </div>
     </div>
-</div>
+</app-card>

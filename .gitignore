@@ -1,7 +1,6 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Compiled output
-/dist
 /tmp
 /out-tsc
 /bazel-out
@@ -30,6 +29,7 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
+/.angular
 /.angular/cache
 .sass-cache/
 /connect.lock
@@ -43,5 +43,3 @@ testem.log
 Thumbs.db
 
 README.md
-/.vscode
-/.angular

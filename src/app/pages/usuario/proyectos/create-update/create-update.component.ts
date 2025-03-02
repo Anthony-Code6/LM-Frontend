@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ProyectoCreateUpdateComponent } from "../../../../components/usuario/proyectos/proyecto-create-update/proyecto-create-update.component";
 import { ProyectosStore } from '../../../../core/store/productos.store';
 import { ProyectosCreate, ProyectosUpdate } from '../../../../core/interfaces/proyectos';
@@ -17,6 +17,7 @@ export class CreateUpdateComponent {
   router = inject(Router)
   activedRouter = inject(ActivatedRoute)
   spinner = inject(NgxSpinnerService)
+  proyectoId: string = ''
 
   constructor() {
     this.spinner.show()
@@ -24,11 +25,12 @@ export class CreateUpdateComponent {
     this.activedRouter.params.subscribe(params => {
       const parametro = params['id']
       if (parametro) {
+        this.proyectoId = params['id'] as string
         this.proyecto_Store.GetProyectos(params['id'])
+
       }
     })
     setTimeout(() => {
-     
       this.spinner.hide()
     }, 3000)
 

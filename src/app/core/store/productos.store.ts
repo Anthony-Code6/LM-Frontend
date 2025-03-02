@@ -116,6 +116,9 @@ export const ProyectosStore = signalStore(
                     next(event: Respuestas) {
                         if (event.exito) {
                             const index = proyecto_listar.findIndex((filter) => filter.idProyectos === datos.idProyectos)
+                            console.log('index edit',index);
+                            
+                            
                             if (index !== -1) {
                                 proyecto_listar[index] = { ...proyecto_listar[index], ...event._proyectos as Proyectos }
                                 patchState(store, { proyectos: proyecto_listar, isLoading: false })

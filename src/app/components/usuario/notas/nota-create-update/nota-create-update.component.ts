@@ -18,14 +18,11 @@ export class NotaCreateUpdateComponent implements AfterViewInit {
 
   nota_search = input<Notas>()
   notas = output<NotasCreate | NotasUpdate>()
+  idNota = input<string>()
 
   formulario!: FormGroup
   form = inject(FormBuilder)
   toast = inject(ToastService)
-  activeRouter = inject(ActivatedRoute)
-
-  // Valor de Editar
-  idNota: string = ''
 
   // Editor Html
   edior: any
@@ -37,18 +34,15 @@ export class NotaCreateUpdateComponent implements AfterViewInit {
     })
 
     // Recibe la informacion por los parametro de la url
-    this.activeRouter.params.subscribe((state) => {
-      this.idNota = state['id'] ? state['id'] : ''
 
-      if (state['id'] != '' && state['id'] != undefined) {
-        setTimeout(() => {
-          const nota = this.nota_search() as Notas
-          this.formulario.controls['titulo'].setValue(nota.titulo)
-          this.edior.setData(nota.nota)
+    if (this.idNota() != '') {
+      setTimeout(() => {
+        const nota = this.nota_search() as Notas
+        this.formulario.controls['titulo'].setValue(nota.titulo)
+        this.edior.setData(nota.nota)
 
-        }, 999)
-      }
-    })
+      }, 999)
+    }
   }
 
   ngAfterViewInit() {
@@ -62,7 +56,7 @@ export class NotaCreateUpdateComponent implements AfterViewInit {
   sendNota() {
     if (this.formulario.valid) {
       let nota: NotasCreate | NotasUpdate
-      if (this.idNota == '') {
+      if (this.idNota() == '') {
         nota = {
           titulo: this.formulario.controls['titulo'].value,
           nota: this.edior.getData()
@@ -71,7 +65,7 @@ export class NotaCreateUpdateComponent implements AfterViewInit {
         console.log(2);
 
         nota = {
-          idNotas: this.idNota,
+          idNotas: this.idNota(),
           titulo: this.formulario.controls['titulo'].value,
           nota: this.edior.getData()
         } as NotasUpdate

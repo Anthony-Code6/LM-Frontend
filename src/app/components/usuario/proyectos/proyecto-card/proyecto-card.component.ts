@@ -1,10 +1,11 @@
 import { Component, computed, input, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Proyectos } from '../../../../core/interfaces/proyectos';
+import { CardComponent } from "../../../../shared/components/card/card.component";
 
 @Component({
   selector: 'app-proyecto-card',
-  imports: [RouterLink],
+  imports: [RouterLink, CardComponent],
   templateUrl: './proyecto-card.component.html',
   styleUrl: './proyecto-card.component.scss'
 })

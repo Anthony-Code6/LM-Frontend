@@ -1,15 +1,15 @@
 import { Component, inject } from '@angular/core';
-import { ButtonOpenAddComponent } from "../../../../shared/components/button-open-add/button-open-add.component";
 import { Router } from '@angular/router';
 import { ProyectoCardComponent } from "../../../../components/usuario/proyectos/proyecto-card/proyecto-card.component";
 import { ProyectosStore } from '../../../../core/store/productos.store';
 import { Proyectos } from '../../../../core/interfaces/proyectos';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { OffcanvasComponent } from "../../../../shared/components/offcanvas/offcanvas.component";
+import { ButtonLinksComponent } from "../../../../shared/components/button-links/button-links.component";
 
 @Component({
   selector: 'app-home',
-  imports: [ButtonOpenAddComponent, ProyectoCardComponent, OffcanvasComponent],
+  imports: [ProyectoCardComponent, OffcanvasComponent, ButtonLinksComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   providers: [ProyectosStore]
@@ -20,15 +20,17 @@ export class HomeComponent {
   router = inject(Router)
   spinner = inject(NgxSpinnerService)
 
+
   dataOffCanvas!: Proyectos
 
   constructor() {
+    this.spinner.show()
     this.proyecto_Store.loadProyectos()
+    setTimeout(() => {
+      this.spinner.hide()
+    }, 700);
   }
 
-  addProyecto() {
-    this.router.navigateByUrl('/user/proyectos/create')
-  }
 
   dltProyecto(event: Proyectos) {
     this.proyecto_Store.DeleteProyecto(event.idProyectos as string)

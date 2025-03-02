@@ -1,5 +1,6 @@
 import { Notas } from "./notas";
 import { Proyectos } from "./proyectos";
+import { Trabajos } from "./trabajos";
 
 export interface Respuestas {
     exito: boolean;
@@ -8,4 +9,5 @@ export interface Respuestas {
     _token?: string;
     _notas?: Notas[] | Notas
     _proyectos?: Proyectos[] | Proyectos
+    _trabajo?: Trabajos[] | Trabajos
 }

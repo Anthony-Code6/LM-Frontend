@@ -3,10 +3,11 @@ import { Notas } from '../../../../core/interfaces/notas';
 import { DatePipe } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
+import { CardComponent } from "../../../../shared/components/card/card.component";
 
 @Component({
   selector: 'app-notas-card',
-  imports: [RouterLink],
+  imports: [RouterLink, CardComponent],
   templateUrl: './notas-card.component.html',
   styleUrl: './notas-card.component.scss',
   providers: [DatePipe]

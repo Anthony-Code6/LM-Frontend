@@ -1,6 +1,6 @@
-<div class="cards">
-    <div class="cards-title">
-        {{!idProyectos ? 'Agregar' : 'Editar'}} Proyecto
+<app-card>
+    <div id="title">
+        {{!idProyecto() ? 'Agregar' : 'Editar'}} Proyecto
 
     </div>
     <hr>
@@ -68,8 +68,9 @@
             </div>
         </div>
         <hr>
-        <div class="cards-footer">
-            <app-button title="{{!idProyectos ? 'Agregar':'Editar'}} Proyecto" type="submit" icon="edit_square" />
+        <div id="footer">
+            <app-button title="{{!idProyecto() ? 'Agregar':'Editar'}} Proyecto" type="submit" icon="edit_square" />
         </div>
     </form>
-</div>
+
+</app-card>

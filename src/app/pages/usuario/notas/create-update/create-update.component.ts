@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { NotaCreateUpdateComponent } from "../../../../components/usuario/notas/nota-create-update/nota-create-update.component";
 import { NotasStore } from '../../../../core/store/notas.store';
 import { Notas, NotasCreate, NotasUpdate } from '../../../../core/interfaces/notas';
@@ -18,12 +18,14 @@ export class CreateUpdateComponent {
   router = inject(Router)
   activeRouter = inject(ActivatedRoute)
   spinner = inject(NgxSpinnerService)
+  notaId = signal<string>('')
 
   constructor() {
 
     this.spinner.show()
     this.activeRouter.params.subscribe((state) => {
       if (state['id'] != '' && state['id'] != undefined) {
+        this.notaId.set(state['id'])
         this.notas_Store.SearchNotas(state['id'])
       }
     })

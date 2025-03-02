@@ -4,10 +4,11 @@ import { Authentication } from '../../../core/interfaces/authentication';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ToastService } from '../../../core/services/toast.service';
 import { ButtonComponent } from "../../../shared/components/button/button.component";
+import { CardComponent } from "../../../shared/components/card/card.component";
 
 @Component({
   selector: 'app-auth-login',
-  imports: [RouterLink, ReactiveFormsModule, ButtonComponent],
+  imports: [RouterLink, ReactiveFormsModule, ButtonComponent, CardComponent],
   templateUrl: './auth-login.component.html',
   styleUrl: './auth-login.component.scss'
 })

@@ -1,0 +1,27 @@
+* {
+    color: white;
+}
+
+#titulo {
+    font-size: clamp(1rem, 2vw, .95rem);
+}
+
+hr {
+    margin: 5px 0;
+}
+
+#footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    #fecha {
+        text-align: start;
+        font-size: clamp(0.9rem, 2vw, 0.95rem);
+    }
+    #total {
+        text-align: end;
+        font-size: clamp(0.9rem, 2vw, 0.8rem);
+    }
+}
+
+

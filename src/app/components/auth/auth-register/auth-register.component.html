@@ -1,106 +1,105 @@
-<div class="cards">
-    <div class="cards-body">
-        <h5>Registrar Cuenta</h5>
-        <a routerLink="/auth/" class="return-login">
-            <span class="material-symbols-outlined">
-                arrow_back_ios
-            </span>
-        </a>
-        <form enctype="multipart/form-data" autocomplete="off" id="formulario" [formGroup]="formulario"
-            (submit)="sendRegister()">
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" name="nombre" id="nombre" class="form-control form-control-sm shadow-none"
-                    placeholder="Nombre" formControlName="nombre" />
-                @if (formulario.controls['nombre'].invalid && formulario.controls['nombre'].touched ||
-                formulario.controls['nombre'].dirty) {
-                <small id="message-error">
-                    @if (formulario.controls['nombre'].errors?.['required']) {
-                    <span class="material-symbols-outlined">
-                        error
-                    </span>
-                    El Nombre es requerido.
-                    }
-
-                    @if (formulario.controls['nombre'].errors?.['pattern']) {
-                    <span class="material-symbols-outlined">
-                        error
-                    </span>
-                    El Nombre no permite numeros ni simbolos.
-                    }
-
-                </small>
+<app-card>
+    <h5>Registrar Cuenta</h5>
+    <a routerLink="/auth/" class="return-login">
+        <span class="material-symbols-outlined">
+            arrow_back_ios
+        </span>
+    </a>
+    <form enctype="multipart/form-data" autocomplete="off" id="formulario" [formGroup]="formulario"
+        (submit)="sendRegister()">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" name="nombre" id="nombre" class="form-control form-control-sm shadow-none"
+                placeholder="Nombre" formControlName="nombre" />
+            @if (formulario.controls['nombre'].invalid && formulario.controls['nombre'].touched ||
+            formulario.controls['nombre'].dirty) {
+            <small id="message-error">
+                @if (formulario.controls['nombre'].errors?.['required']) {
+                <span class="material-symbols-outlined">
+                    error
+                </span>
+                El Nombre es requerido.
                 }
-            </div>
-            <div class="mb-3">
-                <label for="apellido" class="form-label">Apellido</label>
-                <input type="text" name="apellido" id="apellido" class="form-control form-control-sm shadow-none"
-                    placeholder="Apellido" formControlName="apellido" />
-                @if (formulario.controls['apellido'].invalid && formulario.controls['apellido'].touched ||
-                formulario.controls['apellido'].dirty) {
-                <small id="message-error">
-                    @if (formulario.controls['apellido'].errors?.['required']) {
-                    <span class="material-symbols-outlined">
-                        error
-                    </span>
-                    El Apellido es requerido.
-                    }
 
-                    @if (formulario.controls['apellido'].errors?.['pattern']) {
-                    <span class="material-symbols-outlined">
-                        error
-                    </span>
-                    El Apellido no permite numeros ni simbolos.
-                    }
-
-                </small>
+                @if (formulario.controls['nombre'].errors?.['pattern']) {
+                <span class="material-symbols-outlined">
+                    error
+                </span>
+                El Nombre no permite numeros ni simbolos.
                 }
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo Electronico</label>
-                <input type="text" name="email" id="email" class="form-control form-control-sm shadow-none"
-                    placeholder="Correo Electronico" formControlName="email" />
-                @if (formulario.controls['email'].invalid && formulario.controls['email'].touched ||
-                formulario.controls['email'].dirty) {
-                <small id="message-error">
-                    <span class="material-symbols-outlined">
-                        error
-                    </span>
 
-                    @if (formulario.controls['email'].errors?.['required']) {
-                    El Correo Electrónico es requerido.
-                    }
-
-                    @if (formulario.controls['email'].errors?.['email'] &&
-                    formulario.controls['email'].errors?.['pattern']) {
-                    El Correo Electrónico es invalido.
-                    }
-
-                </small>
+            </small>
+            }
+        </div>
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" name="apellido" id="apellido" class="form-control form-control-sm shadow-none"
+                placeholder="Apellido" formControlName="apellido" />
+            @if (formulario.controls['apellido'].invalid && formulario.controls['apellido'].touched ||
+            formulario.controls['apellido'].dirty) {
+            <small id="message-error">
+                @if (formulario.controls['apellido'].errors?.['required']) {
+                <span class="material-symbols-outlined">
+                    error
+                </span>
+                El Apellido es requerido.
                 }
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="password" name="password" id="password" class="form-control form-control-sm shadow-none"
-                    placeholder="Contraseña" formControlName="password" />
-                @if (formulario.controls['password'].invalid && formulario.controls['password'].touched ||
-                formulario.controls['password'].dirty) {
-                <small id="message-error">
-                    @if (formulario.controls['password'].errors?.['required']) {
-                    <span class="material-symbols-outlined">
-                        error
-                    </span>
-                    La Contraseña es requerida.
-                    }
 
-
-                </small>
+                @if (formulario.controls['apellido'].errors?.['pattern']) {
+                <span class="material-symbols-outlined">
+                    error
+                </span>
+                El Apellido no permite numeros ni simbolos.
                 }
-            </div>
 
-            <div class="footer">
-                <app-button title="Registrar" type="submit" icon="add" />
-            </div>
-        </form>
-    </div>
-</div>
+            </small>
+            }
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Correo Electronico</label>
+            <input type="text" name="email" id="email" class="form-control form-control-sm shadow-none"
+                placeholder="Correo Electronico" formControlName="email" />
+            @if (formulario.controls['email'].invalid && formulario.controls['email'].touched ||
+            formulario.controls['email'].dirty) {
+            <small id="message-error">
+                <span class="material-symbols-outlined">
+                    error
+                </span>
+
+                @if (formulario.controls['email'].errors?.['required']) {
+                El Correo Electrónico es requerido.
+                }
+
+                @if (formulario.controls['email'].errors?.['email'] &&
+                formulario.controls['email'].errors?.['pattern']) {
+                El Correo Electrónico es invalido.
+                }
+
+            </small>
+            }
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" name="password" id="password" class="form-control form-control-sm shadow-none"
+                placeholder="Contraseña" formControlName="password" />
+            @if (formulario.controls['password'].invalid && formulario.controls['password'].touched ||
+            formulario.controls['password'].dirty) {
+            <small id="message-error">
+                @if (formulario.controls['password'].errors?.['required']) {
+                <span class="material-symbols-outlined">
+                    error
+                </span>
+                La Contraseña es requerida.
+                }
+
+
+            </small>
+            }
+        </div>
+
+        <div class="footer">
+            <app-button title="Registrar" type="submit" icon="add" />
+        </div>
+    </form>
+
+</app-card>

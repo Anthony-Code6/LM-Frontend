@@ -1,0 +1,41 @@
+<app-card>
+    <h5>Nueva Area de Trabajo</h5>
+    <hr>
+
+    <form enctype="multipart/form-data" method="post" [formGroup]="formulario" (submit)="sendForm()">
+        <input type="text" class="form-control shadow-none form-control-sm" placeholder="Titulo del Area ..."
+            formControlName="titulo">
+
+        @if(formulario.controls['titulo'].invalid && formulario.controls['titulo'].touched ||
+        formulario.controls['titulo'].dirty){
+        <small id="message-error">
+            @if(formulario.controls['titulo'].errors?.['required']){
+            <span class="material-icons">
+                error
+            </span>
+            El titulo es requerido.
+            }
+        </small>
+        }
+
+        <div class="add-task">
+            <input type="text" class="form-control shadow-none form-control-sm" id="tarea"
+                placeholder="Agregar Tarea ..." formControlName="tareas">
+            <app-button icon="add" type="button" (click)="addTarea()" />
+        </div>
+
+        @if(tareas().length > 0){
+        <div cdkDropList class="task-list" (cdkDropListDropped)="drop($event)">
+            @for (tarea of tareas(); track tarea) {
+            <div class="task-box" cdkDrag [class.task-complete]="tarea.estado">
+                <p>{{tarea.tarea}}</p>
+                <app-button icon="delete" type="button" (click)="removeTarea(tarea.tarea)" />
+            </div>
+            }
+        </div>
+        }
+
+        <app-button type="submit" title="Guardar Trabajo" icon="add" id="btn-button" />
+    </form>
+
+</app-card>

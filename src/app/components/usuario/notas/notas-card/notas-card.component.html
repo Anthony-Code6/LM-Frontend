@@ -1,4 +1,4 @@
-<div class="cards note">
+<app-card>
     <div class="acciones">
         <a (click)="viewNotas()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
             aria-controls="offcanvasRight">
@@ -11,16 +11,16 @@
             <span class="material-icons delete">delete</span>
         </a>
     </div>
-    <div class="cards-body">
-        <h5 class="titulo">
-            {{notas()?.titulo}}
-        </h5>
-        <hr>
-        <div class="contenido" [innerHTML]="contenidoHtml()">
-        </div>
-        <hr>
-        <div class="footer">
-            {{fechaFormat()}}
-        </div>
+    <h5 class="titulo">
+        {{notas()?.titulo}}
+    </h5>
+    <hr>
+    <div class="contenido" [innerHTML]="contenidoHtml()">
     </div>
-</div>
+    <hr>
+    <div class="footer">
+        {{fechaFormat()}}
+    </div>
+
+</app-card>
+
