@@ -1,5 +1,5 @@
 import { patchState, signalStore, withComputed, withMethods, withState } from "@ngrx/signals"
-import { TareaUpdStatus, TrabajoCreate, Trabajos } from "../interfaces/trabajos"
+import { TareaUpdStatus, TrabajoCreate, Trabajos, TrabajoUpdate } from "../interfaces/trabajos"
 import { computed, inject } from "@angular/core"
 import { TrabajosService } from "../services/trabajos.service"
 import { Router } from "@angular/router"
@@ -9,7 +9,7 @@ import { ToastService } from "../services/toast.service"
 type Filter = 'asc' | 'desc' | 'none'
 
 type TrabajosState = {
-    trabajos: Trabajos[] | Trabajos
+    trabajos: Trabajos[]
     trabajo: Trabajos
     filter: Filter
     isLoading: boolean
@@ -109,6 +109,48 @@ export const TrabajoStore = signalStore(
 
                 }, error(err) {
                     toast.showError(err, 'Error')
+                },
+            })
+        },
+        DeleteTrabajo(trabajoId: string) {
+            patchState(store, { isLoading: true })
+            const trabajo = store.trabajos()
+
+            trabajoServices.trabajo_usuario_dlt(trabajoId).subscribe({
+                next(event: Respuestas) {
+                    if (event.exito) {
+                        const trabajos = trabajo.filter(element => element.idTrabajos !== trabajoId)
+                        patchState(store, { isLoading: false, trabajos: trabajos })
+                    } else {
+                        toast.showError(event.mensajeError, 'Error')
+                    }
+                }, error(err) {
+                    toast.showError(err, 'Error')
+                },
+            })
+
+        },
+        UpdateTrabajo(datos: TrabajoUpdate) {
+            patchState(store, { isLoading: true })
+            const trabajos_list = store.trabajos()
+            trabajoServices.trabajo_usuario_upd(datos).subscribe({
+                next(event: Respuestas) {
+                    if (event.exito) {
+                        const index = trabajos_list.findIndex((filter) => filter.idTrabajos === datos.idTrabajos)
+                        console.log('index',index);
+                        
+                        if (index !== -1) {
+                            trabajos_list[index] = { ...trabajos_list[index], ...event._trabajo }
+                            patchState(store, { isLoading: false, trabajos: trabajos_list })
+                        }
+
+                        toast.showSuccess('Actualizado Correctamente', 'Success')
+                        router.navigateByUrl('/user/trabajos')
+                    } else {
+                        toast.showError(event.mensajeError, "Error")
+                    }
+                }, error(err) {
+                    toast.showError(err, "Error")
                 },
             })
         }

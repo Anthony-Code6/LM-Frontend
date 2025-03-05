@@ -1,8 +1,7 @@
 <app-card>
-    <h5>Nueva Area de Trabajo</h5>
+    <h5>{{idTrabajo() == ''?'Nueva':'Editar'}} Area de Trabajo</h5>
     <hr>
-
-    <form enctype="multipart/form-data" method="post" [formGroup]="formulario" (submit)="sendForm()">
+    <form enctype="multipart/form-data" method="post" [formGroup]="formulario" (submit)="sendForm()" autocomplete="off">
         <input type="text" class="form-control shadow-none form-control-sm" placeholder="Titulo del Area ..."
             formControlName="titulo">
 
@@ -35,7 +34,7 @@
         </div>
         }
 
-        <app-button type="submit" title="Guardar Trabajo" icon="add" id="btn-button" />
+        <app-button type="submit" title="{{idTrabajo() == '' ?'Guardar':'Editar'}} Trabajo" icon="add"
+            id="btn-button" />
     </form>
-
 </app-card>

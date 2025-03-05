@@ -27,7 +27,6 @@ export class CreateUpdateComponent {
       if (parametro) {
         this.proyectoId = params['id'] as string
         this.proyecto_Store.GetProyectos(params['id'])
-
       }
     })
     setTimeout(() => {

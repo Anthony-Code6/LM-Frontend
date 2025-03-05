@@ -26,6 +26,13 @@ export interface TrabajoCreate {
     tareas: TareasArray[]
 }
 
+export interface TrabajoUpdate {
+    idTrabajos: string;
+    nombre: string;
+    tareas: TareasArray[]
+}
+
+
 export interface TareaUpdStatus{
     idTareas: string;
     idTrabajo: string;

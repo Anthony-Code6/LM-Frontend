@@ -32,17 +32,6 @@ export class NotaCreateUpdateComponent implements AfterViewInit {
       titulo: this.form.control('', [Validators.required]),
       nota: this.form.control('')
     })
-
-    // Recibe la informacion por los parametro de la url
-
-    if (this.idNota() != '') {
-      setTimeout(() => {
-        const nota = this.nota_search() as Notas
-        this.formulario.controls['titulo'].setValue(nota.titulo)
-        this.edior.setData(nota.nota)
-
-      }, 999)
-    }
   }
 
   ngAfterViewInit() {
@@ -51,6 +40,13 @@ export class NotaCreateUpdateComponent implements AfterViewInit {
       // value: this.notas_Store.get_nota().nota
     } as Options);
 
+    if (this.idNota() != '') {
+      setTimeout(() => {
+        const nota = this.nota_search() as Notas
+        this.formulario.controls['titulo'].setValue(nota.titulo)
+        this.edior.setData(nota.nota)
+      }, 999)
+    }
   }
 
   sendNota() {

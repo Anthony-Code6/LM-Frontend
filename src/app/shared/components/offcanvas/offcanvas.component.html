@@ -47,7 +47,7 @@
         }@else if (trabajo()) {
         <div class="tareas">
             <ol>
-                @for (item of trabajo()?.Tareas; track item) {
+                @for (item of trabajo()?.Tareas; track item.idTrabajo) {
                 <li>
                     <div class="form-check">
                         <input class="form-check-input  shadow-none" type="checkbox" [attr.trabajo]="item.idTrabajo"

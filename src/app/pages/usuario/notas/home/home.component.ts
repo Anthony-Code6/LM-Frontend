@@ -7,6 +7,7 @@ import { Notas } from '../../../../core/interfaces/notas';
 import { OffcanvasComponent } from "../../../../shared/components/offcanvas/offcanvas.component";
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ButtonLinksComponent } from "../../../../shared/components/button-links/button-links.component";
+import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ import { ButtonLinksComponent } from "../../../../shared/components/button-links
 })
 export class HomeComponent {
 
+  services = inject(AuthService)
   router = inject(Router)
   notasServices = inject(NotasService)
   dataOffCanvas!: Notas

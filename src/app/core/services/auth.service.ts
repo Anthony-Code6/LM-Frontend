@@ -12,7 +12,7 @@ import { environment } from '../../../environments/environment.development';
 export class AuthService {
 
   private endPoint: string = environment.urlLegionMastes + 'auth/'
-  private  http = inject(HttpClient)
+  private http = inject(HttpClient)
 
   login(datos: Authentication): Observable<Respuestas> {
     return this.http.post<Respuestas>(this.endPoint + 'auth-login', datos)
@@ -21,14 +21,14 @@ export class AuthService {
 
 
   isLoggeIn() {
-    const token = this.getToken()
+    const token = this.tokenAuth()
     if (!token) return false
 
     return !this.isTokenExpired()
   }
 
   private isTokenExpired() {
-    const token = this.getToken()
+    const token = this.tokenAuth()
     if (!token) return true
 
     const decode = jwtDecode(token)
@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   getUserDetail() {
-    const token = this.getToken()
+    const token = this.tokenAuth()
     if (!token) return null
 
     const decodeToken: any = jwtDecode(token)
@@ -53,7 +53,7 @@ export class AuthService {
     return userDetail
   }
   getRol() {
-    const token = this.getToken()
+    const token = this.tokenAuth()
     if (!token) return null
 
     const decodeToken: any = jwtDecode(token)
@@ -64,9 +64,25 @@ export class AuthService {
     localStorage.removeItem('token')
   }
 
-  private getToken() {
-    return localStorage.getItem('token')
+  private tokenAuth() {
+    return this.getStorage('token')
   }
 
+  setStorage(item: string, content: any) {
+    localStorage.setItem(item, JSON.stringify(content))
+  }
+
+  getStorage(item:string){
+    const content = localStorage.getItem(item) as string
+    return JSON.parse(content)
+  }
+
+  removerStorage(item:string){
+    localStorage.removeItem(item)
+  }
+
+  clearStorage(){
+    localStorage.clear()
+  }
 }
 

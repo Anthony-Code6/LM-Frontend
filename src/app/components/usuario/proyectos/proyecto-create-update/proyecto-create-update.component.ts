@@ -1,4 +1,4 @@
-import { Component, inject, input, output } from '@angular/core';
+import { AfterViewInit, Component, inject, input, output } from '@angular/core';
 import { ButtonComponent } from "../../../../shared/components/button/button.component";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ToastService } from '../../../../core/services/toast.service';
@@ -10,7 +10,7 @@ import { CardComponent } from "../../../../shared/components/card/card.component
   templateUrl: './proyecto-create-update.component.html',
   styleUrl: './proyecto-create-update.component.scss'
 })
-export class ProyectoCreateUpdateComponent {
+export class ProyectoCreateUpdateComponent implements AfterViewInit {
   // Variables
   informacionProyecto = input<Proyectos>()
   formularioProyecto = output<ProyectosCreate | ProyectosUpdate>()
@@ -27,7 +27,9 @@ export class ProyectoCreateUpdateComponent {
       link: this.form.control('', [Validators.required]),
       estado: this.form.control(false)
     })
+  }
 
+  ngAfterViewInit(): void {
     if (this.idProyecto() != '') {
       setTimeout(() => {
         const proyecto = this.informacionProyecto()
@@ -37,7 +39,6 @@ export class ProyectoCreateUpdateComponent {
         this.formulario.controls['estado'].setValue(proyecto?.estado)
       }, 2000);
     }
-
   }
 
   sendProyecto() {

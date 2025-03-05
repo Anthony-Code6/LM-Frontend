@@ -20,7 +20,8 @@ export class LoginComponent {
   authentication(datos: Authentication) {
     this.authServices.login(datos).subscribe((event: Respuestas) => {
       if (event.exito) {
-        localStorage.setItem('token', event._token as string)
+        //        localStorage.setItem('token', event._token as string)
+        this.authServices.setStorage("token", event._token)
         this.router.navigate(['/user'])
       }
     })

@@ -14,7 +14,6 @@ import { ButtonLinksComponent } from "../../../../shared/components/button-links
   providers: [TrabajoStore]
 })
 export class TrabajosHomeComponent {
-
   readonly trabajoStore = inject(TrabajoStore)
   trabajo_view!: Trabajos
   router = inject(Router)
@@ -29,5 +28,9 @@ export class TrabajosHomeComponent {
 
   updateEstado(event: TareaUpdStatus) {
     this.trabajoStore.UpdateTareaEstado(event)
+  }
+
+  dltTrabajo(event: Trabajos) {
+    this.trabajoStore.DeleteTrabajo(event.idTrabajos)
   }
 }

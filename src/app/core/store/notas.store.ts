@@ -48,6 +48,8 @@ export const NotasStore = signalStore(
             patchState(store, { isLoading: true })
             notasServices.notas_sellst_usuario().subscribe((event: Respuestas) => {
                 if (event.exito) {
+                    console.log(event._notas);
+                    
                     patchState(store, { notas: event._notas as Notas[], isLoading: false })
                 } else {
                     toast.showError(event.mensajeError, 'Error')

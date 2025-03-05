@@ -3,7 +3,7 @@ import { environment } from '../../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Respuestas } from '../interfaces/respuestas';
-import { TareaUpdStatus, TrabajoCreate } from '../interfaces/trabajos';
+import { TareaUpdStatus, TrabajoCreate, TrabajoUpdate } from '../interfaces/trabajos';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,13 @@ export class TrabajosService {
 
   trabajo_usuario_getTrabajo(id: string): Observable<Respuestas> {
     return this.https.get<Respuestas>(this.url + 'trabajo-search/' + id)
+  }
+
+  trabajo_usuario_dlt(trabajoid:string): Observable<Respuestas> {
+    return this.https.delete<Respuestas>(this.url + 'trabajo-delete/' + trabajoid)
+  }
+
+  trabajo_usuario_upd(datos:TrabajoUpdate): Observable<Respuestas> {
+    return this.https.put<Respuestas>(this.url + 'trabajo-update', datos)
   }
 }

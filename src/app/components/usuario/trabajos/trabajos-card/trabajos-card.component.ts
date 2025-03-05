@@ -16,6 +16,7 @@ export class TrabajosCardComponent {
   datePipe = inject(DatePipe)
 
   sendTrabajo = output<Trabajos>()
+  sendTrabajoDlt = output<Trabajos>()
 
   formatDate = computed(() => {
     return this.datePipe.transform(this.trabajos()?.fecha, 'dd-MM-yyyy') as string
@@ -26,7 +27,12 @@ export class TrabajosCardComponent {
     return total > 0 ? total : 0
   })
 
-  enviarTrabajo(){
+  enviarTrabajo() {
     this.sendTrabajo.emit(this.trabajos() as Trabajos)
   }
+
+  eliminarTrabajo() {
+    this.sendTrabajoDlt.emit(this.trabajos() as Trabajos)
+  }
+
 }

@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { TrabajosCreateUpdateComponent } from "../../../../components/usuario/trabajos/trabajos-create-update/trabajos-create-update.component";
 import { TrabajoStore } from '../../../../core/store/trabajos.store';
-import { TrabajoCreate } from '../../../../core/interfaces/trabajos';
+import { TrabajoCreate, TrabajoUpdate } from '../../../../core/interfaces/trabajos';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -24,19 +24,25 @@ export class CreateUpdateComponent {
     this.routerAdtived.params.subscribe((param) => {
       const parametro = param['id']
 
-      if (parametro) {
+      if (parametro != '' && parametro != undefined) {
         this.trabajoId.set(param['id'])
-
+        this.trabajoStore.GetTrabajos(parametro)
+      } else {
+        this.trabajoId.set('')
       }
-
     })
 
     setTimeout(() => {
       this.spinner.hide()
     }, 2000);
+
   }
 
-  GuardarTrabajo(event: TrabajoCreate) {
-    this.trabajoStore.AddTrabajo(event)
+  GuardarTrabajo(event: TrabajoCreate | TrabajoUpdate) {
+    if ('idTrabajos' in event) {
+      this.trabajoStore.UpdateTrabajo(event)
+    } else {
+      this.trabajoStore.AddTrabajo(event)
+    }
   }
 }

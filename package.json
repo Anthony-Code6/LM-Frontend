@@ -23,6 +23,7 @@
     "@ngrx/signals": "^19.0.1",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.8",
     "jsuites": "^5.9.0",
     "jwt-decode": "^4.0.0",
     "ng-angular-popup": "^0.6.6",
