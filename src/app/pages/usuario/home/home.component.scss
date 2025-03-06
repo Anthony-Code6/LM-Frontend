@@ -1,0 +1,22 @@
+.mat-expansion-panel {
+    backdrop-filter: blur(7px) saturate(138%) !important;
+    -webkit-backdrop-filter: blur(7px) saturate(138%) !important;
+    background-color: rgba(17, 25, 40, 0.64) !important;
+}
+
+.mat-expansion-panel-header-title {
+    font-weight: 600 !important;
+    font-size: clamp(0.8rem, 2vh, 2rem);
+}
+
+.mat-expansion-panel-header-title,
+p {
+    color: white !important;
+    font-family: "Playfair Display", serif !important;
+}
+
+p {
+    font-size: clamp(0.5rem, 2vh, 1rem);
+    font-weight: 300 !important;
+    margin-bottom: 4px !important;
+}

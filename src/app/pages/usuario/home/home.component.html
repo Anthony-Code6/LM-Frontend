@@ -1,3 +1,29 @@
-<div>
-    <canvas id="myChart"></canvas>
+<div class="container-fluid">
+    <div class="row g-1">
+        <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-6 col-sm-12">
+            <app-card>
+                <app-graficas ids="total_registros" types="bar" title="Cantidad de Tares por Trabajo"
+                    [grafi]="dashboardStore.list_grafica()" />
+            </app-card>
+        </div>
+
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <app-card>
+                <mat-accordion>
+                    @for (item of dashboardStore.list_tareas_trabajo(); track item) {
+                    <mat-expansion-panel hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title> {{item.nombre}}</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <p>Completado: {{item.completado}}</p>
+                        <p>Pendiente: {{item.pendiente}}</p>
+                        <p>Total: {{item.total}}</p>
+                    </mat-expansion-panel>
+                    }
+
+                </mat-accordion>
+            </app-card>
+        </div>
+    </div>
+
 </div>
